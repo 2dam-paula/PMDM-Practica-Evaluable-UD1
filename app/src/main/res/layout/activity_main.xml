@@ -1,19 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="#F3F4F6"
     tools:context=".MainActivity">
 
+    <!-- texto principal -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Menú Principal - Paula"
+        android:layout_marginBottom="15dp"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Imagen central -->
+    <ImageView
+        android:id="@+id/iv_imagen_central"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/principal"
+        android:layout_marginBottom="40dp" />
+
+    <!-- Fila 1 de botones -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <ImageButton
+            android:id="@+id/btn_llamada"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:src="@android:drawable/ic_menu_call"
+            android:backgroundTint="#6200EE" />
+
+        <ImageButton
+            android:id="@+id/btn_navegador"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@android:drawable/ic_menu_search"
+            android:backgroundTint="#6200EE" />
+    </LinearLayout>
+
+    <!-- Fila 2 de botones -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="40dp">
+
+        <ImageButton
+            android:id="@+id/btn_alarma"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:src="@android:drawable/ic_lock_idle_alarm"
+            android:backgroundTint="#6200EE"
+            app:tint="#FFFFFF" />
+
+        <ImageButton
+            android:id="@+id/btn_libre"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@android:drawable/ic_dialog_email"
+            android:backgroundTint="#6200EE" />
+    </LinearLayout>
+
+    <!-- Botón volver a configuración -->
+    <Button
+        android:id="@+id/btn_volver_config"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Volver a Configuración"
+        android:backgroundTint="#757575"
+        android:textColor="#FFFFFF"/>
+
+</LinearLayout>
