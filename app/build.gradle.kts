@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.iesvcarmen.practicaEvaluable"
-        minSdk = 23
+        minSdk = 22
         targetSdk = 37
         versionCode = 1
         versionName = "1.0"

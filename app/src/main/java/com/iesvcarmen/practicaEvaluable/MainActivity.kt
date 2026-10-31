@@ -1,5 +1,6 @@
 package com.iesvcarmen.practicaEvaluable
 
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -7,6 +8,7 @@ import android.os.Bundle
 import android.provider.AlarmClock
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import java.util.Calendar
 
@@ -68,11 +70,13 @@ class MainActivity : AppCompatActivity() {
         btnLibre.setOnClickListener {
             val intent = Intent(Intent.ACTION_SENDTO).apply {
                 data = Uri.parse("mailto:")
-                putExtra(Intent.EXTRA_EMAIL, arrayOf(emailGuardado))
+                if (emailGuardado != null && emailGuardado != "Sin email") {
+                    putExtra(Intent.EXTRA_EMAIL, arrayOf(emailGuardado))
+                }
                 putExtra(Intent.EXTRA_SUBJECT, "Práctica Tema 1 - Intent Libre")
                 putExtra(Intent.EXTRA_TEXT, "Hola, esto es una prueba del botón libre.")
             }
-            startActivity(intent)
+            lanzarIntent(intent, "No hay app de correo instalada")
         }
 
         // Botón 5: Volver a Configuración (Intent Explícito)
@@ -80,6 +84,13 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ConfiguracionActivity::class.java)
             startActivity(intent)
             finish()
+        }
+    }
+    fun lanzarIntent(intent: Intent, mensajeError: String) {
+        try {
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(this, mensajeError, Toast.LENGTH_SHORT).show()
         }
     }
 }
