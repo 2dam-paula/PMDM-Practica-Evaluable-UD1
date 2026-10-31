@@ -37,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
         android:text="123456789"
+        android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
@@ -49,6 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nombre"
+        android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/num_telefono"
@@ -83,5 +85,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/coger_llamada"
         app:tint="#FFFFFF" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

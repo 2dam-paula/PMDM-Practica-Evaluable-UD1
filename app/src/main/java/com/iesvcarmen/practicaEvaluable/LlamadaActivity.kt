@@ -37,6 +37,9 @@ class LlamadaActivity : AppCompatActivity() {
         }
 
         btnVolver.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
             finish()
         }
     }
@@ -52,9 +55,13 @@ class LlamadaActivity : AppCompatActivity() {
     }
 
     private fun lanzarIntentLlamada() {
-        val intentLLamada = Intent(Intent.ACTION_DIAL)
-        intentLLamada.data = Uri.parse("tel:$telefonoDestino")
-        startActivity(intentLLamada)
+        val intentLlamada = Intent(Intent.ACTION_CALL)
+        intentLlamada.data = Uri.parse("tel:$telefonoDestino")
+        try {
+            startActivity(intentLlamada)
+        } catch (e: SecurityException) {
+            Toast.makeText(this, "Sin permiso para llamar", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
